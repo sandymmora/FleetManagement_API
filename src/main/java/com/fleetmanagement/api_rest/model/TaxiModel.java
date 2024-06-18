@@ -14,6 +14,9 @@ public class TaxiModel {
         this.plate = plate;
     }
 
+    public TaxiModel() {
+    }
+
     public Integer getId() {
         return id;
     }
