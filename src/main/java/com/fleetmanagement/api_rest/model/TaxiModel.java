@@ -1,6 +1,15 @@
 package com.fleetmanagement.api_rest.model;
 
 import jakarta.persistence.*;
+import lombok.AllArgsConstructor;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
+
+@AllArgsConstructor
+@NoArgsConstructor
+@Getter
+@Setter
 
 @Entity
 @Table(name = "taxis")
@@ -8,29 +17,5 @@ public class TaxiModel {
     @Id
     private Integer id;
     private String plate;
-
-    public TaxiModel(Integer id, String plate) {
-        this.id = id;
-        this.plate = plate;
-    }
-
-    public TaxiModel() {
-    }
-
-    public Integer getId() {
-        return id;
-    }
-
-    public void setId(Integer id) {
-        this.id = id;
-    }
-
-    public String getPlate() {
-        return plate;
-    }
-
-    public void setPlate(String plate) {
-        this.plate = plate;
-    }
 }
 
