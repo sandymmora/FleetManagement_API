@@ -8,13 +8,15 @@ import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
+
 @Service
 public class TaxiService {
     @Autowired
     private TaxiRepository taxiRepository;
 
 
-    public Page<TaxiModel> getTaxis(String plate, Integer page, Integer limit){
+    public List<TaxiModel> getTaxis(String plate, Integer page, Integer limit){
         Pageable pageable = PageRequest.of(page,limit);
         return taxiRepository.findByPlateContaining(plate, pageable);
     }

@@ -7,8 +7,9 @@ import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 
 import java.util.ArrayList;
+import java.util.List;
 
 @Repository
 public interface TaxiRepository extends JpaRepository<TaxiModel, Integer> {
-    public Page<TaxiModel> findByPlateContaining(String plate, Pageable pageable);
+    public List<TaxiModel> findByPlateContaining(String plate, Pageable pageable);
 }

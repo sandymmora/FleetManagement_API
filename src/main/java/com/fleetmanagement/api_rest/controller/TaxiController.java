@@ -16,8 +16,8 @@ public class TaxiController {
 
     @GetMapping()
     public List<TaxiModel> getTaxis(@RequestParam(required = false, defaultValue = "") String plate,
-                                    @RequestParam(defaultValue = "1") Integer page,
+                                    @RequestParam(defaultValue = "0") Integer page,
                                     @RequestParam(defaultValue = "10") Integer limit) {
-        return taxiService.getTaxis(plate,page,limit).getContent();
+        return taxiService.getTaxis(plate,page,limit);
     }
 }
