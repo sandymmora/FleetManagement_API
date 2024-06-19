@@ -8,9 +8,6 @@ import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 
-import java.util.ArrayList;
-import java.util.Optional;
-
 @Service
 public class TaxiService {
     @Autowired
@@ -19,7 +16,7 @@ public class TaxiService {
 
     public Page<TaxiModel> getTaxis(String plate, Integer page, Integer limit){
         Pageable pageable = PageRequest.of(page,limit);
-        return (Page<TaxiModel>)  taxiRepository.findByPlateContaining(plate, pageable);
+        return taxiRepository.findByPlateContaining(plate, pageable);
     }
 }
 
