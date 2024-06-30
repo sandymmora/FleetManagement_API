@@ -14,8 +14,8 @@ import java.sql.Timestamp;
 @Setter
 public class TrajectoryDTO {
     private Integer id;
-    //private TaxiModel taxi;
-//    private String taxiId;
+    private String plate;
+    private Integer taxiId;
     private Timestamp date;
     private Double latitude;
     private Double longitude;
