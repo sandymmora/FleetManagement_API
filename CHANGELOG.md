@@ -1,21 +1,19 @@
-## <1.0> - <18/06/2024>
+## <3er Sprint> - <25/06/2024>
 
 ### Sprint learnings
-Spring Initializr
-Controller
-Repository
-Model/Entity
-Service
-Annotations
-Spring Test Mock Mvc
+DTO
+List
+Pageable
+Consultar base de datos con @Query
 
 ### Added
-Endpoint listado de taxis
+Endpoint listado de trajectorias filtradas por taxi y por fecha
 
 ### Changed
+Uso de Page por List 
+Parametros por defecto  enpoint anterior
 
 ### Fixed
-Conexión con base de datos 
-Levantar servicio, agregar constructor vacio
+Mostrar solo el listado de taxis sin info de paginación 
 
 ### Removed

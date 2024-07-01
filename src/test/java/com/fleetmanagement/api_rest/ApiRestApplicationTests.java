@@ -29,10 +29,21 @@ class ApiRestApplicationTests {
 	@Test
 	@DisplayName("Listado Taxis con parámetros")
 	void contextLoadsParams() throws Exception {
+		Integer lengthResult = 4;
 		mockMvc.perform(get("/taxis")
-						.param("limit","2"))
+						.param("limit","4"))
 				.andExpect(status().isOk())
-				.andExpect(jsonPath("$.length()").value(2));
+				.andExpect(jsonPath("$.length()").value(lengthResult));
+	}
+	@Test
+	@DisplayName("Listado trajectories filtrados por taxi")
+	void trajectoriesFilteredByTaxiId() throws Exception {
+		Integer totalTrajectories = 237;
+		mockMvc.perform(get("/trajectories")
+						.param("taxiId","7249")
+						.param("date","05-02-2008" ))
+				.andExpect(status().isOk())
+				.andExpect(jsonPath("$.length()").value(totalTrajectories));
 	}
 }
 

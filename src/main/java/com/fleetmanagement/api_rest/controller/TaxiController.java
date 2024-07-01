@@ -1,5 +1,6 @@
 package com.fleetmanagement.api_rest.controller;
 
+import com.fleetmanagement.api_rest.exception.BadRequestException;
 import com.fleetmanagement.api_rest.model.TaxiModel;
 import com.fleetmanagement.api_rest.service.TaxiService;
 import org.springframework.beans.factory.annotation.Autowired;
