@@ -1,11 +1,15 @@
 package com.fleetmanagement.api_rest;
 
+import com.fleetmanagement.api_rest.model.TrajectoryModel;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.autoconfigure.web.servlet.AutoConfigureMockMvc;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.web.servlet.MockMvc;
+
+import java.util.ArrayList;
+import java.util.List;
 
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.get;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.jsonPath;
@@ -20,23 +24,23 @@ class ApiRestApplicationTests {
 	private MockMvc mockMvc;
 
 	@Test
-	@DisplayName("Listado Taxis sin parámetros")
+	@DisplayName("Taxis parameters required")
 	void contextLoads() throws Exception {
 		mockMvc.perform(get("/taxis"))
-				.andExpect(status().isOk())
-				.andExpect(jsonPath("$").isArray());
+				.andExpect(status().isBadRequest());
 	}
 	@Test
-	@DisplayName("Listado Taxis con parámetros")
+	@DisplayName("All taxis with pagination")
 	void contextLoadsParams() throws Exception {
 		Integer lengthResult = 4;
 		mockMvc.perform(get("/taxis")
-						.param("limit","4"))
+						.param("limit","4")
+						.param("page","1"))
 				.andExpect(status().isOk())
 				.andExpect(jsonPath("$.length()").value(lengthResult));
 	}
 	@Test
-	@DisplayName("Listado trajectories filtrados por taxi")
+	@DisplayName("Search Trajectories by taxi and plate")
 	void trajectoriesFilteredByTaxiId() throws Exception {
 		Integer totalTrajectories = 237;
 		mockMvc.perform(get("/trajectories")
