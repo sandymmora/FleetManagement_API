@@ -1,6 +1,8 @@
 package com.fleetmanagement.api_rest.controller;
 
+import com.fleetmanagement.api_rest.dto.LatestTrajectoriesDTO;
 import com.fleetmanagement.api_rest.dto.TrajectoryDTO;
+import com.fleetmanagement.api_rest.model.TrajectoryModel;
 import com.fleetmanagement.api_rest.service.TrajectoryService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -22,5 +24,9 @@ public class TrajectoryController {
                                                @RequestParam String date){
         Integer taxi = Integer.parseInt(taxiId);
         return trajectoryService.getTrajectories(taxi,date);
+    }
+    @GetMapping("/latest")
+    public List<LatestTrajectoriesDTO> getLatestTrajectories(){
+        return trajectoryService.getLatestTrajectories();
     }
 }
