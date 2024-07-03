@@ -13,7 +13,7 @@ import java.util.List;
 import java.util.stream.Collectors;
 
 @Service
-public class TrajectoryService {
+public class  TrajectoryService {
     @Autowired
     private final TrajectoryRepository trajectoryRepository;
     private final TrajectoryDTOMapper trajectoryDTOMapper;

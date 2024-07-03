@@ -20,3 +20,4 @@ public interface TrajectoryRepository extends JpaRepository<TrajectoryModel, Int
             "ORDER BY date desc", nativeQuery = true)
     List<TrajectoryModel> findLatestTrajectories();
 }
+
