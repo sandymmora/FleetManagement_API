@@ -1,19 +1,22 @@
-## <3er Sprint> - <25/06/2024>
+## <4to Sprint> - <02/07/2024>
 
 ### Sprint learnings
-DTO
-List
-Pageable
-Consultar base de datos con @Query
+@Query Uso de Subconsultas, funciones de ventana OVER()
+Manejo de excepciones 
+Leer documentación Swagger 
+Metodo POST, envío JSON para agregar registro
+Crear tabla desde codigo
 
 ### Added
-Endpoint listado de trajectorias filtradas por taxi y por fecha
+Enpoint para consultar las ultimas ubicaciones de los taxis
+Manejo de excepciones para taxis y trajectories
+Endpoint para creación de usuarios 
 
 ### Changed
-Uso de Page por List 
-Parametros por defecto  enpoint anterior
+DTO trajectories 
+Test ApiRest
 
 ### Fixed
-Mostrar solo el listado de taxis sin info de paginación 
+Respuesta trajectories, mostrar info de taxi que corresponde
 
 ### Removed
