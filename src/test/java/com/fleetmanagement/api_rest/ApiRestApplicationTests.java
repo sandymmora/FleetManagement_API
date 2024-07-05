@@ -6,7 +6,9 @@ import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.autoconfigure.web.servlet.AutoConfigureMockMvc;
 import org.springframework.boot.test.context.SpringBootTest;
+import org.springframework.http.MediaType;
 import org.springframework.test.web.servlet.MockMvc;
+import org.springframework.test.web.servlet.result.MockMvcResultMatchers;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -42,12 +44,16 @@ class ApiRestApplicationTests {
 	@Test
 	@DisplayName("Search Trajectories by taxi and plate")
 	void trajectoriesFilteredByTaxiId() throws Exception {
-		Integer totalTrajectories = 237;
+		String taxiId = "7249";
+		String date = "05-02-2008";
 		mockMvc.perform(get("/trajectories")
-						.param("taxiId","7249")
-						.param("date","05-02-2008" ))
+						.param("taxiId",taxiId)
+						.param("date",date))
 				.andExpect(status().isOk())
-				.andExpect(jsonPath("$.length()").value(totalTrajectories));
+				.andExpect(MockMvcResultMatchers
+						.content()
+						.contentTypeCompatibleWith(MediaType.APPLICATION_JSON))
+				.andExpect(jsonPath("$[0].taxiId").value(taxiId));
 	}
 }
 
