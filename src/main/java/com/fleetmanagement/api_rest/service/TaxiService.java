@@ -17,12 +17,12 @@ public class TaxiService {
     private TaxiRepository taxiRepository;
 
     public List<TaxiModel> getTaxis(String plate, Integer page, Integer limit) throws BadRequestException {
-        if(page == null){
-          throw new BadRequestException("Page number cannot be null");
-        }
-        if(limit == null){
-            throw new BadRequestException("Limit cannot be null ");
-        }
+//        if(page == null){
+//          throw new BadRequestException("Page number cannot be null");
+//        }
+//        if(limit == null){
+//            throw new BadRequestException("Limit cannot be null ");
+//        }
         Pageable pageable = PageRequest.of(page,limit);
         return taxiRepository.findByPlateContaining(plate, pageable) ;
     }

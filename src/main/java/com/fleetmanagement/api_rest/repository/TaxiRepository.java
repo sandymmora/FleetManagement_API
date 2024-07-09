@@ -10,6 +10,6 @@ import org.springframework.stereotype.Repository;
 import java.util.List;
 
 @Repository
-public interface   TaxiRepository extends JpaRepository<TaxiModel, Integer> {
+public interface TaxiRepository extends JpaRepository<TaxiModel, Integer> {
     List<TaxiModel> findByPlateContaining(String plate, Pageable pageable);
 }

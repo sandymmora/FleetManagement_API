@@ -24,4 +24,5 @@ public class UserController {
                                   @RequestParam(defaultValue = "10") Integer limit){
         return userService.getUsers(page,limit);
     }
+//    @PatchMapping
 }
