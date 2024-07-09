@@ -21,4 +21,16 @@ public class ApiExceptionHandler {
         ApiException apiException = new ApiException(notFoundException.getMessage());
         return new ResponseEntity<>(apiException, notFound);
     }
+    @ExceptionHandler(value = {MissingRequiredFields.class})
+    public ResponseEntity<Object> handleMissingRequiredFields(MissingRequiredFields missingRequiredFielsException){
+        HttpStatus missingRequiredFields = HttpStatus.INTERNAL_SERVER_ERROR;
+        ApiException apiException = new ApiException(missingRequiredFielsException.getMessage());
+        return new ResponseEntity<>(apiException, missingRequiredFields);
+    }
+    @ExceptionHandler(value = {EmailAlreadyExist.class})
+    public ResponseEntity<Object> handleEmailAlreadyExist(EmailAlreadyExist emailAlreadyExist){
+        HttpStatus status = HttpStatus.CONFLICT;
+        ApiException apiException = new ApiException(emailAlreadyExist.getMessage());
+        return new ResponseEntity<>(apiException,status);
+    }
 }

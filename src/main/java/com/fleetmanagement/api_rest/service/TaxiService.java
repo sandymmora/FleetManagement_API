@@ -10,10 +10,9 @@ import org.springframework.stereotype.Service;
 
 import java.util.List;
 
-import static java.lang.Double.NaN;
-
 @Service
 public class TaxiService {
+
     @Autowired
     private TaxiRepository taxiRepository;
 
