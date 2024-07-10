@@ -24,5 +24,12 @@ public class UserController {
                                   @RequestParam(defaultValue = "10") Integer limit){
         return userService.getUsers(page,limit);
     }
-//    @PatchMapping
+    @PatchMapping("/{id}")
+    public UserDTO updateNameUser(@PathVariable Integer id, @RequestBody UserModel userUpdate){
+        return userService.updateNameUser(id, userUpdate);
+    }
+    @DeleteMapping("/{id}")
+    public UserDTO deleteUser(@PathVariable Integer id) {
+        return userService.deleteUser(id);
+    }
 }
