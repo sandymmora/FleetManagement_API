@@ -16,7 +16,7 @@ public class TaxiService {
     @Autowired
     private TaxiRepository taxiRepository;
 
-    public List<TaxiModel> getTaxis(String plate, Integer page, Integer limit) throws BadRequestException {
+    public List<TaxiModel> getTaxis(String plate, Integer page, Integer limit) {
 //        if(page == null){
 //          throw new BadRequestException("Page number cannot be null");
 //        }

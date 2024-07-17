@@ -6,12 +6,14 @@ import com.fleetmanagement.api_rest.exception.EmailAlreadyExist;
 import com.fleetmanagement.api_rest.mapper.UserDTOMapper;
 import com.fleetmanagement.api_rest.model.UserModel;
 import com.fleetmanagement.api_rest.repository.UserRepository;
+import org.apache.catalina.User;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
+import java.util.Optional;
 import java.util.stream.Collectors;
 
 @Service
@@ -48,5 +50,26 @@ public class UserService {
                 .stream()
                 .map(userDTOMapper)
                 .collect(Collectors.toList());
+    }
+    public UserDTO updateNameUser(Integer id, UserModel userUpdate){
+        Optional<UserModel> optionalUserModel = userRepository.findById(id);
+        UserModel actualUser = optionalUserModel.get();
+        actualUser.setName(userUpdate.getName());
+        UserModel user = userRepository.save(actualUser);
+        UserDTO userDTO = new UserDTO();
+        userDTO.setId(user.getId());
+        userDTO.setName(user.getName());
+        userDTO.setEmail(user.getEmail());
+        return userDTO;
+    }
+    public UserDTO deleteUser(Integer id){
+        Optional<UserModel> optionalUserModel = userRepository.findById(id);
+        UserModel userExist = optionalUserModel.get();
+        UserDTO userDTO = new UserDTO();
+        userDTO.setId(userExist.getId());
+        userDTO.setName(userExist.getName());
+        userDTO.setEmail(userExist.getEmail());
+        userRepository.delete(userExist);
+        return userDTO;
     }
 }

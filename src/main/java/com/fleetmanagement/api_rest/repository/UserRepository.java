@@ -8,11 +8,12 @@ import org.springframework.data.jpa.repository.Query;
 import org.springframework.stereotype.Repository;
 
 import java.util.List;
+import java.util.Optional;
 
 @Repository
 public interface UserRepository extends JpaRepository<UserModel, Integer> {
     @Query(value = "SELECT * FROM users", nativeQuery = true)
     List<UserModel> findAllUsersPag(Pageable pageable);
 
-    List<UserModel> findByEmail(String email);
+    Optional<UserModel> findByEmail(String email);
 }
