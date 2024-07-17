@@ -1,25 +1,21 @@
-## <5to Sprint> - <09/07/2024>
+## <6to Sprint> - <17/07/2024>
 
 ### Sprint learnings
-Manejo de perfiles 
-Conexión a base de datos de pruebas
-Test unitarios por capa
-@MockBean 
-Metodo Post
-Metodo Patch 
-Metodo Delete 
+Funcionamiento y flujo de Autenticación 
+JWT
+Spring Security
 
 ### Added
-Enpoint para mostrar lista de usuarios
-Enpoint para la creacion de usuarios
-Enpoint para eliminar usuario 
-Enpoint para actualizar el nombre de usuario
-Test para controller, repository y service de Taxis y Ubicaciones 
+Endpoint para login
+Autenticacion de usuarios
+Gererar token
+
 
 ### Changed
 Test e2e
 Test Unitarios
 
 ### Fixed
+Test Taxi repository 
 
 ### Removed
