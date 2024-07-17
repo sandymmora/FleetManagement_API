@@ -8,6 +8,7 @@ import java.sql.Timestamp;
 @NoArgsConstructor
 @Getter
 @Setter
+@Data
 
 @Entity
 @Table(name= "trajectories")

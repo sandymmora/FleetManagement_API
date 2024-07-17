@@ -19,7 +19,8 @@ public class TaxiController {
     public List<TaxiModel> getTaxis(@RequestParam(defaultValue = "") String plate,
                                     @RequestParam(defaultValue = "0") Integer page,
                                     @RequestParam(defaultValue = "10") Integer limit) {
-        return taxiService.getTaxis(plate,page,limit);
+
+            return taxiService.getTaxis(plate,page,limit);
     }
 
 }

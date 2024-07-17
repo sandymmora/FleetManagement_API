@@ -5,9 +5,11 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.ControllerAdvice;
 import org.springframework.web.bind.annotation.ExceptionHandler;
+import org.springframework.web.method.annotation.MethodArgumentTypeMismatchException;
+import org.springframework.web.servlet.mvc.method.annotation.ResponseEntityExceptionHandler;
 
 @ControllerAdvice
-public class ApiExceptionHandler {
+public class ApiExceptionHandler extends ResponseEntityExceptionHandler {
 
     @ExceptionHandler(value = {BadRequestException.class})
     public ResponseEntity<Object> handleBadRequestException(BadRequestException badRequestException) {
@@ -31,6 +33,12 @@ public class ApiExceptionHandler {
     public ResponseEntity<Object> handleEmailAlreadyExist(EmailAlreadyExist emailAlreadyExist){
         HttpStatus status = HttpStatus.CONFLICT;
         ApiException apiException = new ApiException(emailAlreadyExist.getMessage());
+        return new ResponseEntity<>(apiException,status);
+    }
+    @ExceptionHandler(value = {MethodArgumentTypeMismatchException.class})
+    public ResponseEntity<Object> handleArgumentType(MethodArgumentTypeMismatchException argumentNotValid){
+        HttpStatus status = HttpStatus.BAD_REQUEST;
+        ApiException apiException = new ApiException("Page or limit is not valid");
         return new ResponseEntity<>(apiException,status);
     }
 }

@@ -57,12 +57,11 @@ class TrajectoryRepositoryTest {
 
     @Test
     public void findByTaxiFound() {
-        List<TrajectoryModel> trajectories = trajectoryRepository.findByTaxi(4545,"08-02-2024");;
-        assertThat(trajectories).isEmpty();
+        List<TrajectoryModel> trajectories = trajectoryRepository.findByTaxi(4545,"08-02-2024");
         assertThat(trajectories).size().isEqualTo(1);
         TrajectoryModel trajectoryFound = trajectories.getFirst();
-        //assertThat(trajectoryFound.getTaxi()).isEqualTo(4545);
-       // assertThat(trajectoryFound.getDate()).isEqualTo("")
+        assertThat(trajectoryFound.getTaxi().getId()).isEqualTo(4545);
+        //assertThat(trajectoryFound.getDate()).isEqualTo("08-02-2024");
 
     }
     @Test

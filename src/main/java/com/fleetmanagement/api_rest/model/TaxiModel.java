@@ -7,13 +7,12 @@ import lombok.*;
 @NoArgsConstructor
 @Getter
 @Setter
-@Builder
+@Data
 
 @Entity
 @Table(name = "taxis")
 public class TaxiModel {
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
     private String plate;
 }
