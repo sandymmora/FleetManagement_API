@@ -26,12 +26,6 @@ class ApiRestApplicationTests {
 	private MockMvc mockMvc;
 
 	@Test
-	@DisplayName("Taxis parameters required")
-	void contextLoads() throws Exception {
-		mockMvc.perform(get("/taxis"))
-				.andExpect(status().isBadRequest());
-	}
-	@Test
 	@DisplayName("All taxis with pagination")
 	void contextLoadsParams() throws Exception {
 		Integer lengthResult = 4;

@@ -1,22 +1,25 @@
-## <4to Sprint> - <02/07/2024>
+## <5to Sprint> - <09/07/2024>
 
 ### Sprint learnings
-@Query Uso de Subconsultas, funciones de ventana OVER()
-Manejo de excepciones 
-Leer documentación Swagger 
-Metodo POST, envío JSON para agregar registro
-Crear tabla desde codigo
+Manejo de perfiles 
+Conexión a base de datos de pruebas
+Test unitarios por capa
+@MockBean 
+Metodo Post
+Metodo Patch 
+Metodo Delete 
 
 ### Added
-Enpoint para consultar las ultimas ubicaciones de los taxis
-Manejo de excepciones para taxis y trajectories
-Endpoint para creación de usuarios 
+Enpoint para mostrar lista de usuarios
+Enpoint para la creacion de usuarios
+Enpoint para eliminar usuario 
+Enpoint para actualizar el nombre de usuario
+Test para controller, repository y service de Taxis y Ubicaciones 
 
 ### Changed
-DTO trajectories 
-Test ApiRest
+Test e2e
+Test Unitarios
 
 ### Fixed
-Respuesta trajectories, mostrar info de taxi que corresponde
 
 ### Removed
