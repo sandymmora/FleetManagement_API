@@ -4,7 +4,6 @@ import com.fleetmanagement.api_rest.dto.UserDTO;
 import com.fleetmanagement.api_rest.exception.BadRequestException;
 import com.fleetmanagement.api_rest.exception.EmailAlreadyExist;
 import com.fleetmanagement.api_rest.mapper.UserDTOMapper;
-import com.fleetmanagement.api_rest.model.RegisterRequest;
 import com.fleetmanagement.api_rest.model.Role;
 import com.fleetmanagement.api_rest.model.UserModel;
 import com.fleetmanagement.api_rest.repository.UserRepository;

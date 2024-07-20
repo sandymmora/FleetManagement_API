@@ -1,7 +1,6 @@
 package com.fleetmanagement.api_rest.controller;
 
 import com.fleetmanagement.api_rest.dto.UserDTO;
-import com.fleetmanagement.api_rest.model.RegisterRequest;
 import com.fleetmanagement.api_rest.model.UserModel;
 import com.fleetmanagement.api_rest.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
