@@ -1,5 +1,6 @@
 package com.fleetmanagement.api_rest.config;
 
+import com.fleetmanagement.api_rest.exception.InvalidTokenException;
 import jakarta.servlet.FilterChain;
 import jakarta.servlet.ServletException;
 import jakarta.servlet.http.HttpServletRequest;
@@ -39,7 +40,7 @@ public class JwtFilter extends OncePerRequestFilter {
         userEmail = jwtService.getUserName(jwt);
         if (userEmail != null && SecurityContextHolder.getContext().getAuthentication() == null){
             UserDetails userDetails = this.userDetailsService.loadUserByUsername(userEmail);
-            if(jwtService.validateToken(jwt, userDetails)){
+            if(jwtService.validateToken(jwt, userDetails)) {
                 UsernamePasswordAuthenticationToken authenticationToken = new UsernamePasswordAuthenticationToken(
                         userDetails,
                         null,
